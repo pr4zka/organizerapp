@@ -1,0 +1,18 @@
+<%- include('partials/header');%> <%- include('partials/navigation.ejs'); %>
+<div class="container pd-4 m-2">
+  <div class="row">
+    <% list.forEach(function(list){ %>
+    <div class="col-md-3">
+      <div class="card text-center mb-2">
+        <div class="card-body animate__animated animate__backInDown">
+          <h3 class="card-title text-uppercase"><%= list.title %></h3>
+          <p class="m-2"><%= list.description %></p>
+          <p><%= moment(list.created_at).fromNow() %></p>
+          <a href="/edit/<%= list.id %>" class="btn btn-secondary">Editar</a>
+          <a href="/delete/<%= list.id %>" class="btn btn-danger">Eliminar</a>
+        </div>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</div>

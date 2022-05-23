@@ -1,0 +1,33 @@
+<%- include('partials/header.ejs'); %> 
+  </head>
+  <%- include('partials/navigation.ejs'); %>
+  <body>
+        </div>
+      </div>
+    <div class="container p-4">
+      <div class="row">
+        <div class="col-md-4 mx-auto">
+          <div class="card">
+              <div class="card-body">
+                <% events.forEach(function(events) {%>
+                <form action="/edit/<%= events.id%>" method="POST">
+                   
+                      <div class="form-group">
+                          <input type="text" class="form-control mb-2" name="title" value="<%= events.title %>" placeholder="Title" autofocus>
+                      </div>
+                     <div class="form-group">
+                        <input name="description" value="<%= events.description %>" rows="2" class="form-control mb-2" placeholder="Description"></textarea>
+                     </div>   
+                     <div class="form-group text-center">
+                         <button class="btn btn-primary btn-block">Save</button>
+                     </div>
+                     <% }); %>
+                  </form>
+                
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
