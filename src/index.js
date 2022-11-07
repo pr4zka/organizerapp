@@ -37,6 +37,8 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(passport.initialize())
 app.use(passport.session())
+
+
 //global variables
 app.use((req, res, next) => {  
   app.locals.succes = req.flash("succes");
@@ -48,6 +50,9 @@ app.use((req, res, next) => {
 //routes
 app.use(events);
 app.use(auth)
+app.get('/', (req, res) => {
+  res.redirect('/signin')
+})
 
 //public
 app.use(express.static(path.join(__dirname, 'public')))

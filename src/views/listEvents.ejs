@@ -8,8 +8,8 @@
           <h3 class="card-title text-uppercase"><%= list.title %></h3>
           <p class="m-2"><%= list.description %></p>
           <p><%= moment(list.created_at).fromNow() %></p>
-          <a href="/edit/<%= list.id %>" class="btn btn-secondary">Editar</a>
-          <a href="/delete/<%= list.id %>" class="btn btn-danger">Eliminar</a>
+          <a href="/edit/<%= list.events_id %>" class="btn btn-secondary">Editar</a>
+          <a href="/delete/<%= list.events_id %>" class="btn btn-danger">Eliminar</a>
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@ controllers.logout = function (req, res, next) {
     if (err) {
       return next(err);
     }
-    res.redirect("signin");
+     res.redirect("signin");
   });
 };
 

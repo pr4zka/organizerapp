@@ -16,7 +16,7 @@ controller.addd = async (req, res) => {
     };
 
     const events = await pool.query("INSERT INTO events set ?", [newEvent]);
-    console.log(events)
+    console.log(events );
     req.flash('succes', 'events saved succesfuly')
     res.redirect("events");
   } catch (error) {
@@ -39,7 +39,7 @@ controller.list = async (req, res) => {
 controller.delete = async (req, res) => {
   try {
     const { id } = req.params;
-    await pool.query("DELETE FROM events WHERE ID = ?", [id]);
+    await pool.query("DELETE FROM events WHERE events_id = ?", [id]);
     req.flash('succes', "Evento eliminado con exito")
     res.redirect("/events/list");
   } catch (error) {
@@ -50,7 +50,7 @@ controller.delete = async (req, res) => {
 controller.edit = async (req, res) => {
   try {
     const { id } = req.params;
-    const events = await pool.query("SELECT * FROM events WHERE id=?", [id]);
+    const events = await pool.query("SELECT * FROM events WHERE events_id=?", [id]);
     res.render("edit", { events });
   } catch (error) {
     console.log(error);
@@ -65,9 +65,9 @@ controller.editt = async (req, res) => {
     description,
 
   };
-  await pool.query('UPDATE events set ? WHERE id = ?', [newEvent, id])
+  await pool.query('UPDATE events set ? WHERE events_id = ?', [newEvent, id])
   req.flash('succes', 'Evento actualizado')
-  res.redirect('/events/list')
+  res.redirect('/events/list');
 };
  
 module.exports = controller;
